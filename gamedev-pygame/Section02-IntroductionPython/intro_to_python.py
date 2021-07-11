@@ -80,3 +80,16 @@ if degree == 'Master' or degree == 'PhD':
     print("You don't have enough experience")
 else:
   print("You don't have the required degree")
+
+# LOOPS
+i = 0
+
+while i <= 5:
+  print(i)
+  print(i * 'i')
+  i += 1
+
+temperatures = [67, 30, 70, 43, 91]
+
+for item in temperatures:
+  print('item')
