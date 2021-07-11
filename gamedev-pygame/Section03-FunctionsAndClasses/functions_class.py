@@ -31,3 +31,7 @@ dog = Animal('Perri', 'Brown')
 dog.run()
 
 print(dog.name)
+
+# Modules
+from module import random
+print(random(8))
