@@ -43,3 +43,19 @@ y = 11
 
 x += y 
 y -= x
+x *= y
+y /= x
+
+# COMPARISONS AND LOGICAL OPERATIONS
+x = 5 > 4
+print(x)
+x = 5 < 4
+print(x)
+x = 5 == 4
+print(x)
+x = 5 != 4
+print(x)
+x = True and False
+print(x)
+x = True or False
+print(x)
