@@ -36,3 +36,10 @@ print(lauri.lower())
 print(lauri.find('e'))
 print(lauri.replace('love', 'just like'))
 print(lauri.find('programming'))
+
+# ARITHMETIC OPERATIONS
+x = 5
+y = 11
+
+x += y 
+y -= x
