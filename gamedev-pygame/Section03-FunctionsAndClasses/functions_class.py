@@ -14,3 +14,20 @@ def name_uppercase(name):
 
 name_res = name_uppercase('Laureano')
 print(name_res)
+
+# Classes, Objects and Methods
+class Animal:
+  def __init__(self, name, color):
+    self.name = name
+    self.color = color
+
+  def run(self):
+    print('Running...')
+
+  def eat(self):
+    print('Eating...')
+
+dog = Animal('Perri', 'Brown')
+dog.run()
+
+print(dog.name)
