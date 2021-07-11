@@ -27,3 +27,12 @@ if subtract < 0:
   print('Negative Number')
 else:
   print('Positive Number')
+
+# OPERATIONS WITH STRINGS
+lauri = 'I love programming and I learn every day'
+
+print(lauri.upper())
+print(lauri.lower())
+print(lauri.find('e'))
+print(lauri.replace('love', 'just like'))
+print(lauri.find('programming'))
