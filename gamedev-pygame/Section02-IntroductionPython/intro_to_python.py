@@ -93,3 +93,13 @@ temperatures = [67, 30, 70, 43, 91]
 
 for item in temperatures:
   print('item')
+
+# DATA STRUCTURES
+tech_list = ['Apple', 'Microsoft', 'Nintendo', 'SpaceX']
+print(tech_list[0:2])
+tech_list[3] = 'Tesla'
+tech_list.remove('Nintendo')
+tech_list.insert(2, 'Sega')
+print(len(tech_list))
+print('Apple' in tech_list)
+tech_list.clear()
