@@ -59,3 +59,12 @@ x = True and False
 print(x)
 x = True or False
 print(x)
+
+# IF STATEMENT
+car_speed = 60
+if car_speed > 100:
+  print('You drive too fast')
+elif car_speed < 20:
+  print('You drive too slow. This is a highway')
+else:
+  print('You speed is good')
