@@ -103,3 +103,4 @@ tech_list.insert(2, 'Sega')
 print(len(tech_list))
 print('Apple' in tech_list)
 tech_list.clear()
+
