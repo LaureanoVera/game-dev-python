@@ -68,3 +68,15 @@ elif car_speed < 20:
   print('You drive too slow. This is a highway')
 else:
   print('You speed is good')
+
+# EXERSICE 2: If Statements
+degree = input('What us yout degree? Master, Bachelor or PhD? ')
+experience = input('How many years of experience do you have? ')
+
+if degree == 'Master' or degree == 'PhD':
+  if int(experience) >= 2:
+    print('You are accepted for the interview')
+  else:
+    print("You don't have enough experience")
+else:
+  print("You don't have the required degree")
