@@ -32,6 +32,8 @@ ball.shape('square')
 ball.color('white')
 ball.penup()  # clean line
 ball.goto(0, 0)
+ball.dx = 1
+ball.dy = 1
 
 # LINE
 line = turtle.Turtle()
@@ -40,26 +42,31 @@ line.goto(0, -400)
 line.goto(0, 400)
 
 # FUNCTIONS
+
+
 def player_one_up():
     y = player_one.ycor()
-    y += 20
+    y += 30
     player_one.sety(y)
+
 
 def player_one_down():
     y = player_one.ycor()
-    y -= 20
+    y -= 30
     player_one.sety(y)
 
 
 def player_two_up():
-  y = player_two.ycor()
-  y += 20
-  player_two.sety(y)
+    y = player_two.ycor()
+    y += 30
+    player_two.sety(y)
+
 
 def player_two_down():
-  y = player_two.ycor()
-  y -= 20
-  player_two.sety(y)
+    y = player_two.ycor()
+    y -= 30
+    player_two.sety(y)
+
 
 # KEYS
 window.listen()
@@ -70,3 +77,31 @@ window.onkeypress(player_two_down, 'Down')
 
 while True:
     window.update()
+
+    ball.setx(ball.xcor() + ball.dx)
+    ball.sety(ball.ycor() + ball.dy)
+
+    # BORDER
+    if ball.ycor() > 290:
+        ball.dy *= -1
+
+    if ball.ycor() < -290:
+        ball.dy *= -1
+
+    if ball.xcor() > 390:
+        ball.goto(0, 0)
+        ball.dx *= -1
+
+    if ball.xcor() < -390:
+        ball.goto(0, 0)
+        ball.dx *= -1
+
+    if ((ball.xcor() > 340 and ball.xcor() < 350) and
+        (ball.ycor() < player_two.ycor() + 50) and
+        (ball.ycor() > player_two.ycor() - 50)):
+      ball.dx *= -1
+
+    if ((ball.xcor() < -340 and ball.xcor() > -350) and
+        (ball.ycor() < player_one.ycor() + 50) and
+        (ball.ycor() > player_one.ycor() - 50)):
+      ball.dx *= -1
