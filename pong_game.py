@@ -7,6 +7,10 @@ window.bgcolor('black')
 window.setup(width=800, height=600)
 window.tracer(0)
 
+# POINTS
+points_one = 0
+points_two = 0
+
 # PLAYER ONE
 player_one = turtle.Turtle()
 player_one.speed(0)
@@ -14,7 +18,7 @@ player_one.shape('square')
 player_one.color('white')
 player_one.penup()  # clean line
 player_one.goto(-350, 0)
-player_one.shapesize(stretch_wid=5, stretch_len=1)
+player_one.shapesize(stretch_wid=7, stretch_len=1)
 
 # PLAYER TWO
 player_two = turtle.Turtle()
@@ -23,7 +27,7 @@ player_two.shape('square')
 player_two.color('white')
 player_two.penup()  # clean line
 player_two.goto(350, 0)
-player_two.shapesize(stretch_wid=5, stretch_len=1)
+player_two.shapesize(stretch_wid=7, stretch_len=1)
 
 # BALL
 ball = turtle.Turtle()
@@ -40,6 +44,14 @@ line = turtle.Turtle()
 line.color('white')
 line.goto(0, -400)
 line.goto(0, 400)
+
+# PEN
+pen = turtle.Turtle()
+pen.speed(0)
+pen.color('white')
+pen.penup()  # clean line
+pen.hideturtle()
+pen.goto(0, 260)
 
 # FUNCTIONS
 
@@ -91,17 +103,23 @@ while True:
     if ball.xcor() > 390:
         ball.goto(0, 0)
         ball.dx *= -1
+        points_one += 1
+        pen.clear()
+        pen.write('Player 1: {}                        Player 2: {}'.format(points_one, points_two), align='center', font=("Courier", 14, "normal"))
 
     if ball.xcor() < -390:
         ball.goto(0, 0)
         ball.dx *= -1
-
+        points_two += 1
+        pen.clear()
+        pen.write('Player 1: {}                        Player 2: {}'.format(points_one, points_two), align='center', font=("Courier", 14, "normal"))
+        
     if ((ball.xcor() > 340 and ball.xcor() < 350) and
-        (ball.ycor() < player_two.ycor() + 50) and
-        (ball.ycor() > player_two.ycor() - 50)):
-      ball.dx *= -1
+        (ball.ycor() < player_two.ycor() + 70) and
+            (ball.ycor() > player_two.ycor() - 70)):
+        ball.dx *= -1
 
     if ((ball.xcor() < -340 and ball.xcor() > -350) and
-        (ball.ycor() < player_one.ycor() + 50) and
-        (ball.ycor() > player_one.ycor() - 50)):
-      ball.dx *= -1
+        (ball.ycor() < player_one.ycor() + 70) and
+            (ball.ycor() > player_one.ycor() - 70)):
+        ball.dx *= -1
