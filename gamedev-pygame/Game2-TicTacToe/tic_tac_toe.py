@@ -24,22 +24,73 @@ def print_board(board):
 
 # print_board(the_board)
 
+
 def game():
-  turn = 'X'
-  count = 0
+    turn = 'X'
+    count = 0
 
-  for i in range(10):
-    print_board(the_board)
+    for i in range(10):
+        print_board(the_board)
 
-    print('It is turn of' + turn + ' Specify the place you want to go')
+        print('It is turn of' + turn + ' Specify the place you want to go')
 
-    move = input()
+        move = input()
 
-    if the_board[move] == '':
-      the_board[move] == turn
-      count += 1
-    else:
-      print('Sorry this cell location is filled. Please choose an other one.')
-      continue
+        if the_board[move] == '':
+            the_board[move] == turn
+            count += 1
+        else:
+            print('Sorry this cell location is filled. Please choose an other one.')
+
+            continue
+
+        if count >= 5:
+          if the_board['7'] == the_board['8'] == the_board['9'] != ' ':
+            print_board(the_board)
+            print('\nGame Over\n')
+            print('Player '+ turn + 'won the game')
+            break
+
+          if the_board['4'] == the_board['5'] == the_board['6'] != ' ':
+            print_board(the_board)
+            print('\nGame Over\n')
+            print('Player '+ turn + 'won the game')
+            break
+
+          if the_board['1'] == the_board['2'] == the_board['3'] != ' ':
+            print_board(the_board)
+            print('\nGame Over\n')
+            print('Player '+ turn + 'won the game')
+            break
+
+          if the_board['1'] == the_board['4'] == the_board['7'] != ' ':
+            print_board(the_board)
+            print('\nGame Over\n')
+            print('Player '+ turn + 'won the game')
+            break
+
+          if the_board['2'] == the_board['5'] == the_board['8'] != ' ':
+            print_board(the_board)
+            print('\nGame Over\n')
+            print('Player '+ turn + 'won the game')
+            break
+
+          if the_board['3'] == the_board['6'] == the_board['9'] != ' ':
+            print_board(the_board)
+            print('\nGame Over\n')
+            print('Player '+ turn + 'won the game')
+            break
+
+          if the_board['1'] == the_board['5'] == the_board['9'] != ' ':
+            print_board(the_board)
+            print('\nGame Over\n')
+            print('Player '+ turn + 'won the game')
+            break
+            
+          if the_board['3'] == the_board['5'] == the_board['7'] != ' ':
+            print_board(the_board)
+            print('\nGame Over\n')
+            print('Player '+ turn + 'won the game')
+            break
 
 print('### END ###')
