@@ -22,6 +22,24 @@ def print_board(board):
     print(board['1'] + '/' + board['2'] + '/' + board['3'])
     print('-*-*-')
 
-print_board(the_board)
+# print_board(the_board)
+
+def game():
+  turn = 'X'
+  count = 0
+
+  for i in range(10):
+    print_board(the_board)
+
+    print('It is turn of' + turn + ' Specify the place you want to go')
+
+    move = input()
+
+    if the_board[move] == '':
+      the_board[move] == turn
+      count += 1
+    else:
+      print('Sorry this cell location is filled. Please choose an other one.')
+      continue
 
 print('### END ###')
