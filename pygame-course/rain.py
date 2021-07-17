@@ -32,9 +32,9 @@ while run:
 
     for coor in coor_list:
         pygame.draw.circle(screen, red, coor, 5)
-        coor[1] += 1
+        coor[1]+=1
         if coor[1] > 500:
-            coor[1] = 0
+            coor[1] = 0 
 
 
     # Update
