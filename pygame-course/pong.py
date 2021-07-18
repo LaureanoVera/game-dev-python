@@ -65,6 +65,12 @@ while not game_over:
     one_y_coor += one_speed
     two_y_coor += two_speed
 
+    if one_y_coor > (size[1] - player_height) or one_y_coor < 0:
+      one_speed = 0
+
+    if two_y_coor > (size[1] - player_height) or two_y_coor < 0:
+      two_speed = 0
+
     # BG COLOR
     screen.fill(black)
 
