@@ -21,6 +21,12 @@ class Meteor(pygame.sprite.Sprite):
         # self.image.set_colorkey(BLACK)
         self.rect = self.image.get_rect()
 
+    def update(self):
+      self.rect.y += 1
+      if self.rect.y > size[1]:
+        self.rect.y = random.randint(-25, -10)
+        self.rect.x = random.randint(0, (size[0]-10))
+
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
@@ -29,11 +35,16 @@ class Player(pygame.sprite.Sprite):
         self.image.set_colorkey(BLACK)
         self.rect = self.image.get_rect()
 
+    def update(self):
+        mouse_pos = pygame.mouse.get_pos()
+        player.rect.x = mouse_pos[0]
+        player.rect.y = mouse_pos[1]
+
 
 meteor_list = pygame.sprite.Group()
 all_sprites = pygame.sprite.Group()
 
-for i in range(50):
+for i in range(30):
     meteor = Meteor()
     meteor.rect.x = random.randrange(size[0])
     meteor.rect.y = random.randrange(size[1])
@@ -50,15 +61,13 @@ while not done:
         if event.type == pygame.QUIT:
             done = True
 
-    mouse_pos = pygame.mouse.get_pos()
-    player.rect.x = mouse_pos[0]
-    player.rect.y = mouse_pos[1]
+    all_sprites.update()
 
     meteor_hit_list = pygame.sprite.spritecollide(player, meteor_list, True)
 
     for meteor in meteor_hit_list:
-      score += 1
-      print(score)
+        score += 1
+        print(score)
 
     screen.fill(BLACK)
 
