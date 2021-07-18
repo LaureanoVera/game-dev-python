@@ -60,25 +60,52 @@ while not game_over:
                 two_speed = 0
             if event.key == pygame.K_DOWN:
                 two_speed = 0
-        
-    # MOVE
+
+    # MOVE PLAYER
     one_y_coor += one_speed
     two_y_coor += two_speed
 
+    # MOVE BALL
+    ball_x += ball_speed_x
+    ball_y += ball_speed_y
+
+    # COLLISIONS
     if one_y_coor > (size[1] - player_height) or one_y_coor < 0:
-      one_speed = 0
+        one_speed = 0
 
     if two_y_coor > (size[1] - player_height) or two_y_coor < 0:
-      two_speed = 0
+        two_speed = 0
+
+    if ball_y > (size[1] - ball_size) or ball_y < 0:
+        ball_speed_y *= -1
+
+    if ball_x > (size[0] - ball_size) or ball_x < 0:
+        ball_speed_x *= -1
+
+    # POINTS
+    if ball_x > size[0] - ball_size:
+        ball_x = size[0] / 2
+        ball_y = size[1] / 2
+
+    if ball_x < 0:
+        ball_x = size[0] / 2
+        ball_y = size[1] / 2
 
     # BG COLOR
     screen.fill(black)
 
     # DRAW ZONE
-    player_one = pygame.draw.rect(screen, white, (one_x_coor, one_y_coor, player_width, player_height))
-    player_two = pygame.draw.rect(screen, white, (two_x_coor, two_y_coor, player_width, player_height))
-    ball = pygame.draw.rect(screen, white, (ball_x, ball_y, ball_size, ball_size))
-    
+    player_one = pygame.draw.rect(
+        screen, white, (one_x_coor, one_y_coor, player_width, player_height))
+    player_two = pygame.draw.rect(
+        screen, white, (two_x_coor, two_y_coor, player_width, player_height))
+    ball = pygame.draw.rect(
+        screen, white, (ball_x, ball_y, ball_size, ball_size))
+
+    # COLLISIONS
+    if ball.colliderect(player_one) or ball.colliderect(player_two):
+        ball_speed_x *= -1
+
     # UPDATE
     pygame.display.flip()
     clock.tick(60)
