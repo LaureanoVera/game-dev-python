@@ -1,5 +1,7 @@
 import os
 import sys
+
+from pygame.version import PygameVersion
 import cfg
 import random
 import pygame
@@ -53,6 +55,29 @@ def create_board(num_rows, num_cols, num_cells):
       blank_cell_idx = move_d(board, blank_cell_idx, num_cols)
   
   return board, blank_cell_idx
+
+def get_image_paths(rootdir):
+  image_names = os.listdir(rootdir)
+  assert len(image_names) > 0
+  return os.path.join(rootdir, random.choice(image_names))
+
+def show_end_interface(screen, width, height):
+  screen.fill(cfg.BACKGROUNDCOLOR)
+  font = pygame.font.Font(cfg.FONTPATH, width/15)
+  title = font.render('Good Job! You Won!', True, (233, 140, 122))
+  rect = title.get_rect()
+  rect.midtop = (width/2, height/2.5)
+  screen.blint(title, rect)
+  pygame.display.update()
+  
+  while True:
+    for event in pygame.event.get():
+      if (event.type == pygame.QUIT) or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
+        pygame.quit()
+        sys.exit()
+
+    pygame.display.update()
+  
 
 
 if __name__ == '__main__':
