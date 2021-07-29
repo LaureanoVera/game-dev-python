@@ -32,9 +32,6 @@ func calculadora_simple(uno:float, dos:float):
   print('Resultado' + str(uno+dos))
 
 
-if :
-  print('Laureano Vera')
-
 if myName == "Laureano":
   pass
 elif condition:
