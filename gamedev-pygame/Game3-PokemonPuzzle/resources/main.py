@@ -69,7 +69,7 @@ def show_end_interface(screen, width, height):
   rect.midtop = (width/2, height/2.5)
   screen.blint(title, rect)
   pygame.display.update()
-  
+
   while True:
     for event in pygame.event.get():
       if (event.type == pygame.QUIT) or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
@@ -78,7 +78,13 @@ def show_end_interface(screen, width, height):
 
     pygame.display.update()
   
-
+def show_start_interface(screen, width, height):
+  screen.fill(cfg.BACKGROUNDCOLOR)
+  tfont = pygame.font.Font(cfg.FONTPATH, width//4)
+  cfont = pygame.font.Font(cfg.FONTPATH, width//20)
+  title = tfont.render('Puzzle', True, cfg.RED)
+  content1 = cfont.render('Press H, M or L to shoose your puzzle', True, cfg.BLUE)
+  content2 = cfont.render('H- 5x5')
 
 if __name__ == '__main__':
     main()
