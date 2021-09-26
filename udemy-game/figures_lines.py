@@ -27,6 +27,9 @@ while True:
   # CIRCLES
   pygame.draw.circle(screen, circle_color, (400, 280), 60, 10)
   pygame.draw.circle(screen, circle_color, (120, 530), 40, 5)
+  # FIGURES
+  pygame.draw.rect(screen, figure_color, (170, 170, 180, 180))
+  pygame.draw.polygon(screen, figure_color, ((30, 50), (60, 90), (200, 130), (130, 170)))
   for event in pygame.event.get():
     if event.type == QUIT:
       # QUIT GAME
